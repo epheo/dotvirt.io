@@ -2,7 +2,7 @@
 
 DOTVIRT ?= ../dotvirt
 FFMPEG  ?= ffmpeg
-KISS    ?= quay.io/epheo/kiss:0.4.0
+KISS    ?= quay.io/epheo/kiss@sha256:04c6f49c12029696a13be1a51252ff459a8fa4483a12047cc994dc183ecd0a7d
 PORT    ?= 8080
 
 serve:
