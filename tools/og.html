@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../site/style.css">
+<style>
+  /* The site sheet points at /fonts; this page is opened from disk. */
+  @font-face { font-family: "Red Hat Display"; src: url("../site/fonts/red-hat-display.woff2"); font-weight: 300 900; }
+  @font-face { font-family: "Red Hat Text"; src: url("../site/fonts/red-hat-text.woff2"); font-weight: 300 700; }
+  body { width: 1200px; height: 630px; overflow: hidden; padding: 64px 72px; }
+  body::before { height: 630px; }
+  .brand { font-size: 34px; gap: 14px; }
+  .brand svg { width: 54px; height: 44px; }
+  h1 { margin-top: 44px; font-size: 92px; }
+  p { margin-top: 26px; max-width: 800px; color: var(--muted); font-size: 30px; line-height: 1.35; }
+  img { position: absolute; left: 600px; top: 400px; width: 1100px; max-width: none;
+        border: 1px solid var(--line-strong); border-radius: 14px;
+        box-shadow: 0 0 120px rgb(243 119 43 / 0.35); transform: rotate(-4deg); }
+</style>
+</head>
+<body>
+  <span class="brand">
+    <svg viewBox="161.26 5.33 981.56 800.25">
+      <circle cx="561.35" cy="405.42" r="394.09" fill="#F3772B"/>
+      <circle cx="1036.78" cy="699.54" r="100.04" fill="#F3772B"/>
+      <path fill="#fff" fill-rule="evenodd" d="M482.96,654.00 C480.89,645.06 482.83,554.08 482.83,537.00 C482.83,452.33 482.83,367.67 482.83,283.00 C482.83,254.33 482.83,225.67 482.83,197.00 C482.83,193.12 481.99,170.95 484.47,170.00 C490.67,167.87 505.58,169.83 512.67,169.83 C534.22,169.83 555.78,169.83 577.33,169.83 C606.29,169.83 635.71,169.28 664.33,170.82 C669.38,171.09 674.65,170.23 679.67,170.87 C733.49,177.78 786.94,193.34 829.00,230.52 C885.04,280.07 908.74,355.40 904.82,428.33 C904.27,438.57 902.16,448.93 900.87,459.00 C898.15,480.25 892.19,502.82 882.62,522.33 C867.50,553.17 847.20,579.34 820.78,601.33 C806.26,613.41 789.22,621.77 772.33,630.05 C709.60,660.81 637.72,654.83 568.33,654.83 C546.67,654.83 525.00,654.83 503.33,654.83 C500.61,654.83 483.54,655.32 482.96,654.00 Z M594.67,272.96 C593.41,273.51 593.83,286.48 593.83,288.67 C593.83,305.11 593.83,321.56 593.83,338.00 C593.83,386.56 593.83,435.11 593.83,483.67 C593.83,496.74 591.76,541.52 593.96,551.00 C594.52,552.28 628.28,551.83 635.00,551.83 C680.28,551.83 720.09,546.01 755.00,515.14 C810.77,465.84 806.84,355.77 750.00,305.52 C717.78,277.04 675.31,272.83 634.00,272.83 C623.37,272.83 604.33,270.72 594.67,272.96 Z"/>
+    </svg>
+    dotvirt
+  </span>
+  <h1>Point<i>.</i> Click<i>.</i><br>Pull request<i>.</i></h1>
+  <p>A web console for KubeVirt that edits git, not the cluster.</p>
+  <img src="../site/img/changes.webp" alt="">
+</body>
+</html>

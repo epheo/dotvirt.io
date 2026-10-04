@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>dotvirt - Point. Click. Pull request.</title>
+  <meta name="description" content="A web console for KubeVirt that edits git, not the cluster. VMs, networks and firewalls, point-and-click. Every config change is a pull request that ArgoCD applies.">
+  <meta name="theme-color" content="#0b0d12">
+  <link rel="canonical" href="https://dotvirt.io/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dotvirt.io/">
+  <meta property="og:title" content="dotvirt - Point. Click. Pull request.">
+  <meta property="og:description" content="A web console for KubeVirt that edits git, not the cluster.">
+  <meta property="og:image" content="https://dotvirt.io/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="/fonts/red-hat-display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/red-hat-text.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/img/poster.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="nav wrap">
+  <a class="brand" href="/" aria-label="dotvirt home">
+    <svg viewBox="0 0 981.56 800.25" aria-hidden="true"><use href="#mark"/></svg>
+    <span>dotvirt</span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#loop">How it works</a>
+    <a href="#tour">Tour</a>
+    <a href="#install">Install</a>
+    <a class="btn btn-small" href="https://github.com/epheo/dotvirt">GitHub</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero wrap">
+  <ul class="eyebrow">
+    <li>Open source</li>
+    <li>KubeVirt</li>
+    <li>ArgoCD</li>
+  </ul>
+  <h1>Point<i>.</i> Click<i>.</i> <span>Pull request<i>.</i></span></h1>
+  <p class="lede">
+    <span>A web console for KubeVirt that edits git, not the cluster.</span>
+    <span>VMs, networks and firewalls, point-and-click.</span>
+    <span>Every config change is a pull request that ArgoCD applies.</span>
+  </p>
+  <div class="cta">
+    <a class="btn btn-primary" href="#install">Install the operator</a>
+    <button class="btn" type="button" data-seek="0">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
+      Watch the demo
+      <small>3 min</small>
+    </button>
+  </div>
+
+  <figure class="window" id="demo">
+    <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i><span>dotvirt.apps.example.com</span></div>
+    <div class="player">
+      <video preload="none" playsinline poster="/img/poster.webp" width="1600" height="900"
+             aria-label="dotvirt demo: a VM and a firewall rule go from the UI to a pull request to the cluster">
+        <source src="/media/dotvirt-demo.webm" type="video/webm">
+        <source src="/media/dotvirt-demo.mp4" type="video/mp4">
+      </video>
+      <button class="play" type="button" data-seek="0" aria-label="Play the demo">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
+      </button>
+    </div>
+  </figure>
+  <ol class="chapters" aria-label="Demo chapters">
+    <li><button type="button" data-seek="3"><time>0:03</time>Sign in</button></li>
+    <li><button type="button" data-seek="6"><time>0:06</time>Inventory</button></li>
+    <li><button type="button" data-seek="26"><time>0:26</time>Trace a flow</button></li>
+    <li><button type="button" data-seek="38"><time>0:38</time>New VM</button></li>
+    <li><button type="button" data-seek="68"><time>1:08</time>Firewall</button></li>
+    <li><button type="button" data-seek="83"><time>1:23</time>Review</button></li>
+    <li><button type="button" data-seek="102"><time>1:42</time>Pull request</button></li>
+    <li><button type="button" data-seek="134"><time>2:14</time>Merged, synced</button></li>
+    <li><button type="button" data-seek="146"><time>2:26</time>Verify</button></li>
+  </ol>
+</section>
+
+<section class="loop wrap" id="loop">
+  <h2>The UI stages<i>.</i> The forge gates<i>.</i> ArgoCD applies<i>.</i></h2>
+  <p class="sub">The path of every config change, from a click to the cluster.</p>
+  <ol>
+    <li>
+      <h3>Stage</h3>
+      <p>Edit in the UI. dotvirt writes the manifest, not the cluster.</p>
+    </li>
+    <li>
+      <h3>Propose</h3>
+      <p>One pull request per project, with the exact diff.</p>
+    </li>
+    <li>
+      <h3>Merge</h3>
+      <p>Review and approve in your forge, under your rules.</p>
+    </li>
+    <li>
+      <h3>Sync</h3>
+      <p>ArgoCD applies git. Live state reads back in seconds.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="tour wrap" id="tour">
+  <h2>A console your virtualization team already knows<i>.</i></h2>
+  <div class="tabs" role="tablist" aria-label="Product tour">
+    <button role="tab" id="tab-inventory" aria-controls="panel-inventory" aria-selected="true">Inventory</button>
+    <button role="tab" id="tab-vm" aria-controls="panel-vm" aria-selected="false" tabindex="-1">Virtual machine</button>
+    <button role="tab" id="tab-changes" aria-controls="panel-changes" aria-selected="false" tabindex="-1">Changes</button>
+    <button role="tab" id="tab-security" aria-controls="panel-security" aria-selected="false" tabindex="-1">Security</button>
+    <button role="tab" id="tab-topology" aria-controls="panel-topology" aria-selected="false" tabindex="-1">Networking</button>
+  </div>
+
+  <div role="tabpanel" id="panel-inventory" aria-labelledby="tab-inventory">
+    <p class="caption">One live inventory of projects, namespaces and VMs, filtered by your own RBAC.</p>
+    <figure class="window">
+      <img src="/img/inventory.webp" width="2880" height="1800" loading="lazy" decoding="async"
+           alt="VM table: twenty virtual machines with status, address, size, sync state and health">
+    </figure>
+  </div>
+  <div role="tabpanel" id="panel-vm" aria-labelledby="tab-vm" hidden>
+    <p class="caption">Power, console and live migration, next to where the VM stands between git and the cluster.</p>
+    <figure class="window">
+      <img src="/img/vm.webp" width="2880" height="1800" loading="lazy" decoding="async"
+           alt="VM page: guest, hardware and placement cards, and a GitOps card showing staged, proposed, merged, synced">
+    </figure>
+  </div>
+  <div role="tabpanel" id="panel-changes" aria-labelledby="tab-changes" hidden>
+    <p class="caption">Stage edits, read the manifest diff, open one pull request. History and undo come with git.</p>
+    <figure class="window">
+      <img src="/img/changes.webp" width="2880" height="1800" loading="lazy" decoding="async"
+           alt="Changes workspace: staged edits, an open pull request, commit history and a manifest diff">
+    </figure>
+  </div>
+  <div role="tabpanel" id="panel-security" aria-labelledby="tab-security" hidden>
+    <p class="caption">Every firewall tier in one view. Trace a flow and see the rule that decided.</p>
+    <figure class="window">
+      <img src="/img/security.webp" width="2880" height="1800" loading="lazy" decoding="async"
+           alt="Security view: a traced DNS flow denied by a gateway firewall rule, above the firewall tiers">
+    </figure>
+  </div>
+  <div role="tabpanel" id="panel-topology" aria-labelledby="tab-topology" hidden>
+    <p class="caption">Gateways, segments and VLANs as a topology, each one declared in git.</p>
+    <figure class="window">
+      <img src="/img/topology.webp" width="2880" height="1800" loading="lazy" decoding="async"
+           alt="Network topology: a provider gateway with VLAN segments, and project gateways with their segments and VMs">
+    </figure>
+  </div>
+</section>
+
+<section class="principles wrap">
+  <h2>A thin lens that owns nothing<i>.</i></h2>
+  <ul class="cards">
+    <li>
+      <h3>Acts as you</h3>
+      <p>Every request runs under your own cluster token. Cluster RBAC is the only permission model.</p>
+    </li>
+    <li>
+      <h3>Git is the record</h3>
+      <p>Each change is a commit with an author and a diff. Review it, revert it, audit it.</p>
+    </li>
+    <li>
+      <h3>ArgoCD applies</h3>
+      <p>dotvirt never writes config to the cluster. Merging the pull request does.</p>
+    </li>
+  </ul>
+  <ul class="chips" aria-label="Also included">
+    <li>VNC console</li>
+    <li>Live migration</li>
+    <li>Snapshots and clones</li>
+    <li>VM templates</li>
+    <li>Host balancing</li>
+    <li>Drift detection</li>
+    <li>Adopt running VMs</li>
+    <li>Flow tracing</li>
+    <li>Single sign-on</li>
+    <li>Dark mode</li>
+  </ul>
+</section>
+
+<section class="install wrap" id="install">
+  <div>
+    <h2>One resource installs it<i>.</i></h2>
+    <ol class="steps">
+      <li>Install the operator, from OperatorHub on OpenShift or the OLM catalog in the repo.</li>
+      <li>Create one <code>Dotvirt</code> resource. The operator provisions the console, its RBAC, the ArgoCD wiring and an optional Forgejo.</li>
+    </ol>
+    <p class="needs">Needs KubeVirt and ArgoCD. Runs on OpenShift and vanilla Kubernetes.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://github.com/epheo/dotvirt/blob/main/operator/install/README.md">Install guide</a>
+      <a class="btn" href="https://github.com/epheo/dotvirt">Source on GitHub</a>
+    </div>
+  </div>
+  <figure class="code">
+    <figcaption>dotvirt.yaml<button type="button" data-copy>Copy</button></figcaption>
+<pre><code><b>apiVersion</b>: dotvirt.io/v1alpha1
+<b>kind</b>: Dotvirt
+<b>metadata</b>:
+  <b>name</b>: dotvirt
+  <b>namespace</b>: dotvirt
+<b>spec</b>:
+  <b>forge</b>:
+    <b>managed</b>: true   <span># or point at your own forge</span>
+  <b>ingress</b>:
+    <b>type</b>: auto      <span># Route or Ingress</span></code></pre>
+  </figure>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <a class="brand" href="/" aria-label="dotvirt home">
+    <svg viewBox="0 0 981.56 800.25" aria-hidden="true"><use href="#mark"/></svg>
+    <span>dotvirt</span>
+  </a>
+  <p>Open source under the <a href="https://github.com/epheo/dotvirt/blob/main/LICENSE.md">Apache License 2.0</a>. All trademarks belong to their owners.</p>
+  <nav aria-label="Footer">
+    <a href="https://github.com/epheo/dotvirt">GitHub</a>
+    <a href="https://github.com/epheo/dotvirt/releases">Releases</a>
+    <a href="https://github.com/epheo/dotvirt/blob/main/SECURITY.md">Security</a>
+  </nav>
+</footer>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="mark" viewBox="161.26 5.33 981.56 800.25">
+    <circle cx="561.35" cy="405.42" r="394.09" fill="#F3772B"/>
+    <circle cx="1036.78" cy="699.54" r="100.04" fill="#F3772B"/>
+    <path fill="#fff" fill-rule="evenodd" d="M482.96,654.00 C480.89,645.06 482.83,554.08 482.83,537.00 C482.83,452.33 482.83,367.67 482.83,283.00 C482.83,254.33 482.83,225.67 482.83,197.00 C482.83,193.12 481.99,170.95 484.47,170.00 C490.67,167.87 505.58,169.83 512.67,169.83 C534.22,169.83 555.78,169.83 577.33,169.83 C606.29,169.83 635.71,169.28 664.33,170.82 C669.38,171.09 674.65,170.23 679.67,170.87 C733.49,177.78 786.94,193.34 829.00,230.52 C885.04,280.07 908.74,355.40 904.82,428.33 C904.27,438.57 902.16,448.93 900.87,459.00 C898.15,480.25 892.19,502.82 882.62,522.33 C867.50,553.17 847.20,579.34 820.78,601.33 C806.26,613.41 789.22,621.77 772.33,630.05 C709.60,660.81 637.72,654.83 568.33,654.83 C546.67,654.83 525.00,654.83 503.33,654.83 C500.61,654.83 483.54,655.32 482.96,654.00 Z M594.67,272.96 C593.41,273.51 593.83,286.48 593.83,288.67 C593.83,305.11 593.83,321.56 593.83,338.00 C593.83,386.56 593.83,435.11 593.83,483.67 C593.83,496.74 591.76,541.52 593.96,551.00 C594.52,552.28 628.28,551.83 635.00,551.83 C680.28,551.83 720.09,546.01 755.00,515.14 C810.77,465.84 806.84,355.77 750.00,305.52 C717.78,277.04 675.31,272.83 634.00,272.83 C623.37,272.83 604.33,270.72 594.67,272.96 Z"/>
+  </symbol>
+</svg>
+
+<script>
+(() => {
+  const video = document.querySelector('.player video');
+  const player = video.parentElement;
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Controls appear with the first play, so the poster stays a clean still.
+  document.querySelectorAll('[data-seek]').forEach((el) =>
+    el.addEventListener('click', () => {
+      player.classList.add('playing');
+      video.controls = true;
+      video.currentTime = Number(el.dataset.seek);
+      video.play();
+      document.getElementById('demo').scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'center' });
+    })
+  );
+
+  const tabs = [...document.querySelectorAll('[role=tab]')];
+  const select = (tab) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', (e) => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+      if (!step) return;
+      const next = tabs[(i + step + tabs.length) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  });
+
+  const copy = document.querySelector('[data-copy]');
+  copy.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(document.querySelector('.code code').innerText);
+    copy.textContent = 'Copied';
+    setTimeout(() => (copy.textContent = 'Copy'), 1500);
+  });
+})();
+</script>
+</body>
+</html>
